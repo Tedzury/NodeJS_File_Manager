@@ -1,1 +1,3 @@
-console.log('Hello file manager');
+import app from './app.js';
+
+app();
