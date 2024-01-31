@@ -1,12 +1,11 @@
-import { EOL, arch, cpus, homedir, userInfo } from 'os';
+import { join, resolve } from 'path';
+import { platform } from 'process';
+import getRootDir from './src/helpers/getRootDir.js';
+import { homedir } from 'os'
 
-console.log(`Your system EOL: ${JSON.stringify(EOL)}`);
-console.log(`Your home directory: ${homedir()}`);
-console.log(`Your system User Name: ${userInfo().username}`);
-console.log(`Your CPU architecture: ${arch()}`);
-const cpuList = cpus().map((cpu) => ({
-  Model: cpu.model,
-  'Clock rate (GHz)': cpu.speed / 1000
-}));
-console.log(`Number of CPUS: ${cpuList.length}`);
-console.table(cpuList);
+const root = getRootDir(import.meta.url);
+const moddedRoot = root.split('\\');
+console.log(platform);
+console.log(homedir())
+// console.log(resolve(root, '..', '..', '..', '..', '..', '..', '..'));
+console.log(resolve(homedir(), 'trulala', '\\aaaa'))
