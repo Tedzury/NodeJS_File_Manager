@@ -32,7 +32,7 @@ const app = () => {
     rn: (args) => filesManager.rn(args),
     cp: (args) => filesManager.cp(args),
     mv: (args) => filesManager.mv(args),
-    rm: (args) => filesManager.rm(args)
+    rm: (args) => filesManager.rm(args[0])
   }
 
   const handler = replInputHandler(process, appState, commandsList)
