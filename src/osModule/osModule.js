@@ -1,5 +1,5 @@
 import { EOL, arch, cpus, homedir, userInfo } from 'os';
-import OperationError from '../helpers/operationError.js';
+import InvalidInputError from '../helpers/invalidInputError.js';
 
 const possibleOsArgs = {
   '--EOL': () => console.log(`Your system EOL: ${JSON.stringify(EOL)}`),
@@ -21,7 +21,7 @@ const osModule = (argsArr) => {
   if (Object.hasOwn(possibleOsArgs, argument)) {
     possibleOsArgs[argument]();
   } else {
-    throw new OperationError();
+    throw new InvalidInputError();
   }
 }
 

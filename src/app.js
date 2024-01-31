@@ -4,6 +4,7 @@ import osModule from './osModule/osModule.js';
 import getRootDir from './helpers/getRootDir.js';
 import replInputHandler from './replInputHandler/replInputHandler.js';
 import navModule from './navModule/navModule.js';
+import filesModule from './filesModule/filesModule.js';
 
 const app = () => {
   const appState = {
@@ -18,13 +19,20 @@ const app = () => {
   console.log(`You are currently in ${appState.getCurrDir()}`);
 
   const navigation = navModule(appState);
+  const filesManager = filesModule(appState);
 
   const commandsList = {
     '.exit': () => process.exit(),
-    os: (argsArr) => osModule(argsArr),
+    os: (args) => osModule(args),
     ls: () => navigation.ls(),
     up: () => navigation.cd('..'),
-    cd: (argsArr) => navigation.cd(argsArr[0])
+    cd: (args) => navigation.cd(args[0]),
+    cat: (args) => filesManager.cat(args[0]),
+    add: (args) => filesManager.add(args[0]),
+    rn: (args) => filesManager.rn(args),
+    cp: (args) => filesManager.cp(args),
+    mv: (args) => filesManager.mv(args),
+    rm: (args) => filesManager.rm(args)
   }
 
   const handler = replInputHandler(process, appState, commandsList)
