@@ -5,6 +5,8 @@ import getRootDir from './helpers/getRootDir.js';
 import replInputHandler from './replInputHandler/replInputHandler.js';
 import navModule from './navModule/navModule.js';
 import filesModule from './filesModule/filesModule.js';
+import hashModule from './hashModule/hashModule.js';
+import zipModule from './zipModule/zipModule.js';
 
 const app = () => {
   const appState = {
@@ -20,6 +22,8 @@ const app = () => {
 
   const navigation = navModule(appState);
   const filesManager = filesModule(appState);
+  const hashCalc = hashModule(appState);
+  const zipper = zipModule(appState);
 
   const commandsList = {
     '.exit': () => process.exit(),
@@ -32,7 +36,10 @@ const app = () => {
     rn: (args) => filesManager.rn(args),
     cp: (args) => filesManager.cp(args),
     mv: (args) => filesManager.mv(args),
-    rm: (args) => filesManager.rm(args[0])
+    rm: (args) => filesManager.rm(args[0]),
+    hash: (args) => hashCalc(args[0]),
+    compress: (args) => zipper.compress(args),
+    decompress: (args) => zipper.decompress(args)
   }
 
   const handler = replInputHandler(process, appState, commandsList)
