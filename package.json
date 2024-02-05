@@ -12,27 +12,8 @@
     "url": "https://github.com/Tedzury/NodeJS_File_Manager"
   },
   "scripts": {
-    "start": "node src",
-    "prettier:fix": "prettier --write \"src/**/*.js\"",
-    "lint": "eslint .  --ext .js",
-    "lint:fix": "eslint --fix .  --ext .js",
-    "prepare": "husky install"
+    "start": "node src"
   },
   "author": "tedzury",
-  "license": "MIT",
-  "devDependencies": {
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.1.1",
-    "husky": "^8.0.0",
-    "lint-staged": "^15.2.0",
-    "prettier": "3.2.4"
-  },
-  "lint-staged": {
-    "./src/**/*.{tsx, ts}": "eslint",
-    "./src/**/*.{tsx, ts, html, css}": "prettier --write"
-  }
+  "license": "MIT"
 }
