@@ -1,0 +1,19 @@
+{
+  "name": "nodejs_file_manager",
+  "version": "1.0.0",
+  "description": "simple nodejs_file_manager. rsschool, noodejs course 2024Q1, second task",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tedzury/NodeJS_File_Manager"
+  },
+  "scripts": {
+    "start": "node src"
+  },
+  "author": "tedzury",
+  "license": "MIT"
+}
